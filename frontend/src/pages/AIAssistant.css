@@ -1,0 +1,192 @@
+.ai-page {
+  min-height: 100vh;
+  background: #f4f7fb;
+}
+
+.ai-nav {
+  display: flex;
+  gap: 24px;
+  padding: 18px 40px;
+  background: #1e293b;
+}
+
+.ai-nav a {
+  color: white;
+  text-decoration: none;
+  font-weight: 600;
+}
+
+.ai-nav a:hover {
+  text-decoration: underline;
+}
+
+.ai-content {
+  width: min(1100px, 92%);
+  margin: 0 auto;
+  padding: 40px 0 60px;
+}
+
+.ai-header {
+  text-align: center;
+  margin-bottom: 35px;
+}
+
+.ai-badge {
+  display: inline-block;
+  padding: 7px 14px;
+  border-radius: 20px;
+  background: #dbeafe;
+  color: #1d4ed8;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 1px;
+}
+
+.ai-header h1 {
+  margin: 14px 0 10px;
+  font-size: 38px;
+  color: #0f172a;
+}
+
+.ai-header p {
+  margin: 0 auto;
+  max-width: 700px;
+  color: #64748b;
+  font-size: 16px;
+}
+
+.ai-insights,
+.ai-card {
+  background: white;
+  border-radius: 16px;
+  padding: 28px;
+  margin-bottom: 25px;
+  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
+}
+
+.ai-insights h2,
+.ai-response h2 {
+  margin-top: 0;
+  color: #0f172a;
+}
+
+.ai-quick-actions {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 14px;
+  margin-top: 20px;
+}
+
+.ai-quick-actions button {
+  padding: 15px;
+  border: 1px solid #dbe3ef;
+  border-radius: 10px;
+  background: #f8fafc;
+  color: #1e293b;
+  font-weight: 600;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.ai-quick-actions button:hover:not(:disabled) {
+  background: #e2e8f0;
+  transform: translateY(-2px);
+}
+
+.ai-quick-actions button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.ai-card form {
+  display: flex;
+  flex-direction: column;
+}
+
+.ai-card label {
+  margin-bottom: 10px;
+  font-weight: 700;
+  color: #334155;
+}
+
+.ai-card textarea {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 15px;
+  border: 1px solid #cbd5e1;
+  border-radius: 10px;
+  resize: vertical;
+  font-size: 15px;
+  font-family: inherit;
+  outline: none;
+}
+
+.ai-card textarea:focus {
+  border-color: #2563eb;
+  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+}
+
+.ai-card form button {
+  margin-top: 15px;
+  padding: 13px 22px;
+  border: none;
+  border-radius: 10px;
+  background: #2563eb;
+  color: white;
+  font-size: 15px;
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.ai-card form button:hover:not(:disabled) {
+  background: #1d4ed8;
+}
+
+.ai-card form button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+.ai-error {
+  margin-top: 20px;
+  padding: 15px;
+  border-radius: 10px;
+  background: #fee2e2;
+  color: #991b1b;
+}
+
+.ai-response {
+  margin-top: 25px;
+  padding: 22px;
+  border-left: 5px solid #2563eb;
+  border-radius: 10px;
+  background: #f8fafc;
+}
+
+.ai-response p {
+  margin-bottom: 0;
+  white-space: pre-wrap;
+  line-height: 1.7;
+  color: #334155;
+}
+
+@media (max-width: 650px) {
+  .ai-nav {
+    padding: 15px 20px;
+    gap: 14px;
+    flex-wrap: wrap;
+  }
+
+  .ai-content {
+    padding-top: 25px;
+  }
+
+  .ai-header h1 {
+    font-size: 30px;
+  }
+
+  .ai-insights,
+  .ai-card {
+    padding: 20px;
+  }
+}
