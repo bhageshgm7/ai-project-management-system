@@ -1,192 +1,594 @@
+/* =========================================
+   AI ASSISTANT - DARK GLASS AI THEME
+========================================= */
+
 .ai-page {
   min-height: 100vh;
-  background: #f4f7fb;
+  padding: 32px;
+  box-sizing: border-box;
+
+  color: #f8fafc;
+
+  font-family:
+    Inter,
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Arial,
+    sans-serif;
 }
 
-.ai-nav {
+/* =========================================
+   NAVIGATION
+========================================= */
+
+.ai-page nav {
+  max-width: 1180px;
+  margin: 0 auto 30px;
+
   display: flex;
+  align-items: center;
   gap: 24px;
-  padding: 18px 40px;
-  background: #1e293b;
+
+  padding: 16px 22px;
+
+  background: rgba(15, 23, 42, 0.55);
+
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 14px;
+
+  box-shadow:
+    0 10px 35px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
 }
 
-.ai-nav a {
-  color: white;
+.ai-page nav a {
+  position: relative;
+
+  color: rgba(226, 232, 240, 0.7);
+
   text-decoration: none;
+
+  font-size: 14px;
   font-weight: 600;
+
+  transition: 0.2s ease;
 }
 
-.ai-nav a:hover {
-  text-decoration: underline;
+.ai-page nav a:hover {
+  color: #ffffff;
+  transform: translateY(-1px);
 }
 
-.ai-content {
-  width: min(1100px, 92%);
+/* =========================================
+   MAIN CONTAINER
+========================================= */
+
+.ai-page > h1 {
+  max-width: 1180px;
+
+  margin: 0 auto 25px;
+
+  font-size: 34px;
+  font-weight: 800;
+
+  letter-spacing: -0.8px;
+
+  color: #ffffff;
+}
+
+/* =========================================
+   AI GLASS CONTAINER
+========================================= */
+
+.ai-container {
+  position: relative;
+
+  max-width: 1180px;
+
+  min-height: 600px;
+
   margin: 0 auto;
-  padding: 40px 0 60px;
+
+  display: flex;
+  flex-direction: column;
+
+  overflow: hidden;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(59, 130, 246, 0.08),
+      rgba(139, 92, 246, 0.08)
+    ),
+    rgba(15, 23, 42, 0.58);
+
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+
+  border: 1px solid rgba(255, 255, 255, 0.13);
+
+  border-radius: 22px;
+
+  box-shadow:
+    0 20px 60px rgba(0, 0, 0, 0.3),
+    0 0 50px rgba(79, 70, 229, 0.08),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
 }
+
+/* =========================================
+   AI HEADER
+========================================= */
 
 .ai-header {
-  text-align: center;
-  margin-bottom: 35px;
+  display: flex;
+
+  align-items: center;
+  justify-content: space-between;
+
+  padding: 20px 24px;
+
+  background: rgba(255, 255, 255, 0.045);
+
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
-.ai-badge {
-  display: inline-block;
-  padding: 7px 14px;
-  border-radius: 20px;
-  background: #dbeafe;
-  color: #1d4ed8;
-  font-size: 12px;
-  font-weight: 700;
-  letter-spacing: 1px;
-}
+.ai-header h2 {
+  margin: 0;
 
-.ai-header h1 {
-  margin: 14px 0 10px;
-  font-size: 38px;
-  color: #0f172a;
+  font-size: 19px;
+  font-weight: 750;
+
+  color: #ffffff;
 }
 
 .ai-header p {
-  margin: 0 auto;
-  max-width: 700px;
-  color: #64748b;
-  font-size: 16px;
+  margin: 4px 0 0;
+
+  color: rgba(226, 232, 240, 0.55);
+
+  font-size: 12px;
 }
 
-.ai-insights,
-.ai-card {
-  background: white;
-  border-radius: 16px;
-  padding: 28px;
-  margin-bottom: 25px;
-  box-shadow: 0 8px 25px rgba(15, 23, 42, 0.08);
-}
+/* =========================================
+   AI STATUS
+========================================= */
 
-.ai-insights h2,
-.ai-response h2 {
-  margin-top: 0;
-  color: #0f172a;
-}
+.ai-status {
+  display: flex;
 
-.ai-quick-actions {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
-  gap: 14px;
-  margin-top: 20px;
-}
+  align-items: center;
 
-.ai-quick-actions button {
-  padding: 15px;
-  border: 1px solid #dbe3ef;
-  border-radius: 10px;
-  background: #f8fafc;
-  color: #1e293b;
+  gap: 8px;
+
+  color: #c7d2fe;
+
+  font-size: 12px;
   font-weight: 600;
-  cursor: pointer;
-  transition: 0.2s;
 }
 
-.ai-quick-actions button:hover:not(:disabled) {
-  background: #e2e8f0;
-  transform: translateY(-2px);
+.ai-status::before {
+  content: "";
+
+  width: 8px;
+  height: 8px;
+
+  border-radius: 50%;
+
+  background: #60a5fa;
+
+  box-shadow:
+    0 0 8px #60a5fa,
+    0 0 16px rgba(96, 165, 250, 0.6);
 }
 
-.ai-quick-actions button:disabled {
-  opacity: 0.6;
-  cursor: not-allowed;
-}
+/* =========================================
+   CHAT AREA
+========================================= */
 
-.ai-card form {
+.ai-chat {
+  flex: 1;
+
   display: flex;
   flex-direction: column;
+
+  gap: 16px;
+
+  padding: 26px;
+
+  overflow-y: auto;
+
+  min-height: 400px;
 }
 
-.ai-card label {
-  margin-bottom: 10px;
-  font-weight: 700;
-  color: #334155;
-}
+/* =========================================
+   MESSAGE WRAPPER
+========================================= */
 
-.ai-card textarea {
+.ai-message {
+  display: flex;
+
   width: 100%;
+}
+
+.ai-message.user {
+  justify-content: flex-end;
+}
+
+.ai-message.assistant {
+  justify-content: flex-start;
+}
+
+/* =========================================
+   MESSAGE BUBBLES
+========================================= */
+
+.ai-message-content {
+  max-width: 72%;
+
+  padding: 14px 17px;
+
+  border-radius: 16px;
+
+  font-size: 14px;
+
+  line-height: 1.55;
+
+  box-shadow:
+    0 8px 24px rgba(0, 0, 0, 0.16);
+}
+
+/* USER */
+
+.ai-message.user .ai-message-content {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(59, 130, 246, 0.9),
+      rgba(99, 102, 241, 0.9),
+      rgba(139, 92, 246, 0.9)
+    );
+
+  color: #ffffff;
+
+  border: 1px solid rgba(255, 255, 255, 0.15);
+
+  border-bottom-right-radius: 5px;
+
+  box-shadow:
+    0 8px 25px rgba(79, 70, 229, 0.25);
+}
+
+/* AI */
+
+.ai-message.assistant .ai-message-content {
+  background: rgba(255, 255, 255, 0.075);
+
+  color: rgba(241, 245, 249, 0.9);
+
+  border: 1px solid rgba(255, 255, 255, 0.11);
+
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+
+  border-bottom-left-radius: 5px;
+}
+
+/* =========================================
+   AI LABEL
+========================================= */
+
+.ai-label {
+  margin-bottom: 5px;
+
+  color: #a5b4fc;
+
+  font-size: 11px;
+
+  font-weight: 750;
+
+  text-transform: uppercase;
+
+  letter-spacing: 0.6px;
+}
+
+/* =========================================
+   EMPTY CHAT
+========================================= */
+
+.ai-empty {
+  flex: 1;
+
+  display: flex;
+
+  flex-direction: column;
+
+  align-items: center;
+
+  justify-content: center;
+
+  text-align: center;
+
+  padding: 50px 20px;
+}
+
+.ai-empty-icon {
+  width: 64px;
+  height: 64px;
+
+  display: flex;
+
+  align-items: center;
+  justify-content: center;
+
+  margin-bottom: 18px;
+
+  border-radius: 20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(59, 130, 246, 0.2),
+      rgba(139, 92, 246, 0.2)
+    );
+
+  border: 1px solid rgba(129, 140, 248, 0.25);
+
+  box-shadow:
+    0 0 35px rgba(99, 102, 241, 0.15);
+}
+
+.ai-empty h2 {
+  margin: 0 0 8px;
+
+  color: #ffffff;
+
+  font-size: 22px;
+}
+
+.ai-empty p {
+  max-width: 500px;
+
+  margin: 0;
+
+  color: rgba(226, 232, 240, 0.55);
+
+  font-size: 14px;
+
+  line-height: 1.6;
+}
+
+/* =========================================
+   INPUT AREA
+========================================= */
+
+.ai-input-area {
+  display: flex;
+
+  align-items: center;
+
+  gap: 12px;
+
+  padding: 18px 20px;
+
+  background: rgba(15, 23, 42, 0.45);
+
+  border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* =========================================
+   INPUT
+========================================= */
+
+.ai-input-area input,
+.ai-input-area textarea {
+  flex: 1;
+
+  width: 100%;
+
   box-sizing: border-box;
-  padding: 15px;
-  border: 1px solid #cbd5e1;
-  border-radius: 10px;
-  resize: vertical;
-  font-size: 15px;
-  font-family: inherit;
+
+  padding: 13px 16px;
+
+  background: rgba(255, 255, 255, 0.07);
+
+  color: #ffffff;
+
+  border: 1px solid rgba(255, 255, 255, 0.13);
+
+  border-radius: 12px;
+
   outline: none;
+
+  font-family: inherit;
+
+  font-size: 14px;
+
+  transition: 0.2s ease;
 }
 
-.ai-card textarea:focus {
-  border-color: #2563eb;
-  box-shadow: 0 0 0 3px rgba(37, 99, 235, 0.12);
+.ai-input-area input::placeholder,
+.ai-input-area textarea::placeholder {
+  color: rgba(226, 232, 240, 0.4);
 }
 
-.ai-card form button {
-  margin-top: 15px;
-  padding: 13px 22px;
+.ai-input-area input:focus,
+.ai-input-area textarea:focus {
+  background: rgba(255, 255, 255, 0.09);
+
+  border-color: rgba(96, 165, 250, 0.6);
+
+  box-shadow:
+    0 0 0 3px rgba(59, 130, 246, 0.1),
+    0 0 20px rgba(59, 130, 246, 0.08);
+}
+
+/* =========================================
+   SEND BUTTON
+========================================= */
+
+.ai-input-area button {
+  flex-shrink: 0;
+
   border: none;
-  border-radius: 10px;
-  background: #2563eb;
-  color: white;
-  font-size: 15px;
+
+  border-radius: 11px;
+
+  padding: 13px 20px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #3b82f6,
+      #6366f1,
+      #8b5cf6
+    );
+
+  color: #ffffff;
+
+  font-size: 14px;
+
   font-weight: 700;
+
   cursor: pointer;
+
+  box-shadow:
+    0 8px 22px rgba(79, 70, 229, 0.3);
+
+  transition: 0.25s ease;
 }
 
-.ai-card form button:hover:not(:disabled) {
-  background: #1d4ed8;
+.ai-input-area button:hover {
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 12px 30px rgba(79, 70, 229, 0.45);
 }
 
-.ai-card form button:disabled {
-  opacity: 0.6;
+.ai-input-area button:active {
+  transform: translateY(0);
+}
+
+.ai-input-area button:disabled {
+  opacity: 0.5;
+
   cursor: not-allowed;
+
+  transform: none;
+
+  box-shadow: none;
 }
+
+/* =========================================
+   ERROR MESSAGE
+========================================= */
 
 .ai-error {
-  margin-top: 20px;
-  padding: 15px;
-  border-radius: 10px;
-  background: #fee2e2;
-  color: #991b1b;
+  margin: 0 auto 20px;
+
+  max-width: 1180px;
+
+  padding: 13px 16px;
+
+  box-sizing: border-box;
+
+  border-radius: 11px;
+
+  background: rgba(239, 68, 68, 0.1);
+
+  border: 1px solid rgba(248, 113, 113, 0.25);
+
+  color: #fecaca;
+
+  font-size: 14px;
+
+  font-weight: 600;
+
+  backdrop-filter: blur(14px);
 }
 
-.ai-response {
-  margin-top: 25px;
-  padding: 22px;
-  border-left: 5px solid #2563eb;
-  border-radius: 10px;
-  background: #f8fafc;
+/* =========================================
+   SCROLLBAR
+========================================= */
+
+.ai-chat::-webkit-scrollbar {
+  width: 7px;
 }
 
-.ai-response p {
-  margin-bottom: 0;
-  white-space: pre-wrap;
-  line-height: 1.7;
-  color: #334155;
+.ai-chat::-webkit-scrollbar-track {
+  background: transparent;
 }
 
-@media (max-width: 650px) {
-  .ai-nav {
-    padding: 15px 20px;
-    gap: 14px;
+.ai-chat::-webkit-scrollbar-thumb {
+  background: rgba(148, 163, 184, 0.25);
+
+  border-radius: 999px;
+}
+
+.ai-chat::-webkit-scrollbar-thumb:hover {
+  background: rgba(148, 163, 184, 0.4);
+}
+
+/* =========================================
+   RESPONSIVE
+========================================= */
+
+@media (max-width: 800px) {
+  .ai-page {
+    padding: 16px;
+  }
+
+  .ai-page nav {
     flex-wrap: wrap;
+
+    gap: 15px 20px;
+
+    padding: 16px;
   }
 
-  .ai-content {
-    padding-top: 25px;
+  .ai-page > h1 {
+    font-size: 28px;
   }
 
-  .ai-header h1 {
-    font-size: 30px;
+  .ai-container {
+    min-height: 550px;
   }
 
-  .ai-insights,
-  .ai-card {
-    padding: 20px;
+  .ai-message-content {
+    max-width: 85%;
+  }
+}
+
+@media (max-width: 500px) {
+  .ai-page {
+    padding: 12px;
+  }
+
+  .ai-page > h1 {
+    font-size: 25px;
+  }
+
+  .ai-header {
+    padding: 17px;
+  }
+
+  .ai-chat {
+    padding: 18px 14px;
+  }
+
+  .ai-message-content {
+    max-width: 90%;
+  }
+
+  .ai-input-area {
+    padding: 12px;
+  }
+
+  .ai-input-area button {
+    padding: 12px 15px;
   }
 }
