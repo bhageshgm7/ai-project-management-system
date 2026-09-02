@@ -2,6 +2,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import api from "../services/api";
 import { useAuth } from "../context/AuthContext";
+import "./Login.css";
 
 function Login() {
   const [username, setUsername] = useState("");
@@ -39,37 +40,78 @@ function Login() {
 
   return (
     <div className="login-page">
-      <div className="login-card">
-        <h1>AI Project Management System</h1>
-        <h2>Login</h2>
+      <div className="login-glow login-glow-one"></div>
+      <div className="login-glow login-glow-two"></div>
 
-        {error && <p className="error-message">{error}</p>}
+      <div className="login-card">
+        <div className="login-icon">✦</div>
+
+        <div className="login-heading">
+          <p className="login-badge">AI POWERED</p>
+
+          <h1>AI Project</h1>
+          <h1>Management System</h1>
+
+          <p className="login-subtitle">
+            Manage projects, tasks and workflows intelligently.
+          </p>
+        </div>
+
+        <div className="login-divider"></div>
+
+        <h2>Welcome back</h2>
+
+        <p className="login-description">
+          Sign in to continue to your workspace.
+        </p>
+
+        {error && (
+          <p className="error-message">
+            {error}
+          </p>
+        )}
 
         <form onSubmit={handleSubmit}>
-          <label>Username</label>
+          <label htmlFor="username">
+            Username
+          </label>
+
           <input
+            id="username"
             type="text"
             value={username}
             onChange={(event) => setUsername(event.target.value)}
             placeholder="Enter username"
+            autoComplete="username"
             required
           />
 
-          <label>Password</label>
+          <label htmlFor="password">
+            Password
+          </label>
+
           <input
+            id="password"
             type="password"
             value={password}
             onChange={(event) => setPassword(event.target.value)}
             placeholder="Enter password"
+            autoComplete="current-password"
             required
           />
 
-          <button type="submit">Login</button>
+          <button type="submit">
+            <span>Login</span>
+            <span className="login-arrow">→</span>
+          </button>
         </form>
+
+        <p className="login-footer">
+          Secure authentication powered by JWT
+        </p>
       </div>
     </div>
   );
 }
 
 export default Login;
- 

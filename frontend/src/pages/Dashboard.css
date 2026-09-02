@@ -4,11 +4,7 @@
 
 .dashboard-page {
   min-height: 100vh;
-
-  background: transparent;
-
   color: #f8fafc;
-
   font-family:
     Inter,
     -apple-system,
@@ -23,29 +19,54 @@
 ========================================= */
 
 .dashboard-header {
+  max-width: 1180px;
+  margin: 0 auto;
+
+  padding: 28px 32px 18px;
+
   display: flex;
   align-items: center;
   justify-content: space-between;
-
-  max-width: 1180px;
-
-  margin: 0 auto;
-
-  padding: 28px 32px;
-
-  box-sizing: border-box;
 }
 
 .dashboard-header h1 {
   margin: 0;
 
-  color: #ffffff;
-
   font-size: 25px;
-
-  font-weight: 750;
+  font-weight: 800;
 
   letter-spacing: -0.5px;
+
+  color: #ffffff;
+}
+
+.dashboard-header button {
+  border: 1px solid rgba(255, 255, 255, 0.12);
+
+  border-radius: 10px;
+
+  padding: 10px 18px;
+
+  background: rgba(255, 255, 255, 0.07);
+
+  backdrop-filter: blur(12px);
+
+  color: #ffffff;
+
+  font-size: 14px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: 0.2s ease;
+}
+
+.dashboard-header button:hover {
+  background: rgba(255, 255, 255, 0.13);
+
+  border-color: rgba(129, 140, 248, 0.35);
+
+  transform: translateY(-1px);
 }
 
 /* =========================================
@@ -55,31 +76,26 @@
 .dashboard-nav {
   display: flex;
 
-  gap: 24px;
+  gap: 22px;
 
-  margin-top: 14px;
+  margin-top: 12px;
 }
 
 .dashboard-nav a {
   position: relative;
 
-  color: rgba(226, 232, 240, 0.7);
+  color: rgba(226, 232, 240, 0.65);
 
   text-decoration: none;
 
   font-size: 14px;
-
   font-weight: 600;
 
-  transition:
-    color 0.2s ease,
-    transform 0.2s ease;
+  transition: 0.2s ease;
 }
 
 .dashboard-nav a:hover {
   color: #ffffff;
-
-  transform: translateY(-1px);
 }
 
 .dashboard-nav a::after {
@@ -88,70 +104,25 @@
   position: absolute;
 
   left: 0;
-
   bottom: -7px;
 
   width: 0;
-
   height: 2px;
 
   border-radius: 999px;
 
-  background: linear-gradient(
-    90deg,
-    #60a5fa,
-    #8b5cf6
-  );
+  background:
+    linear-gradient(
+      90deg,
+      #3b82f6,
+      #8b5cf6
+    );
 
   transition: width 0.25s ease;
 }
 
 .dashboard-nav a:hover::after {
   width: 100%;
-}
-
-/* =========================================
-   LOGOUT BUTTON
-========================================= */
-
-.dashboard-header button {
-  border: 1px solid rgba(255, 255, 255, 0.15);
-
-  border-radius: 10px;
-
-  padding: 10px 18px;
-
-  background: rgba(255, 255, 255, 0.08);
-
-  backdrop-filter: blur(14px);
-
-  -webkit-backdrop-filter: blur(14px);
-
-  color: #ffffff;
-
-  font-size: 14px;
-
-  font-weight: 700;
-
-  cursor: pointer;
-
-  box-shadow:
-    0 8px 24px rgba(0, 0, 0, 0.18),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-
-  transition: 0.25s ease;
-}
-
-.dashboard-header button:hover {
-  background: rgba(255, 255, 255, 0.14);
-
-  border-color: rgba(129, 140, 248, 0.45);
-
-  transform: translateY(-2px);
-
-  box-shadow:
-    0 12px 30px rgba(0, 0, 0, 0.25),
-    0 0 20px rgba(79, 70, 229, 0.15);
 }
 
 /* =========================================
@@ -163,21 +134,21 @@
 
   margin: 0 auto;
 
-  padding: 0 32px 50px;
+  padding: 20px 32px 60px;
 
   box-sizing: border-box;
 }
 
 .dashboard-content > h2 {
-  margin: 12px 0 28px;
-
-  color: #ffffff;
+  margin: 10px 0 28px;
 
   font-size: 34px;
 
   font-weight: 800;
 
   letter-spacing: -0.8px;
+
+  color: #ffffff;
 }
 
 /* =========================================
@@ -185,11 +156,13 @@
 ========================================= */
 
 .error-message {
-  padding: 14px 16px;
+  padding: 13px 16px;
 
-  border-radius: 12px;
+  margin-bottom: 22px;
 
-  background: rgba(239, 68, 68, 0.12);
+  border-radius: 11px;
+
+  background: rgba(239, 68, 68, 0.1);
 
   border: 1px solid rgba(248, 113, 113, 0.25);
 
@@ -199,15 +172,11 @@
 
   font-weight: 600;
 
-  margin-bottom: 22px;
-
   backdrop-filter: blur(14px);
-
-  -webkit-backdrop-filter: blur(14px);
 }
 
 /* =========================================
-   STATISTICS GRID
+   STATISTICS
 ========================================= */
 
 .dashboard-stats {
@@ -221,190 +190,61 @@
   margin-bottom: 30px;
 }
 
-/* =========================================
-   GLASS STAT CARD
-========================================= */
-
 .stat-card {
   position: relative;
 
   overflow: hidden;
 
-  background: rgba(255, 255, 255, 0.08);
-
-  backdrop-filter: blur(22px);
-
-  -webkit-backdrop-filter: blur(22px);
-
-  border: 1px solid rgba(255, 255, 255, 0.14);
-
-  border-radius: 18px;
-
   padding: 22px;
 
-  box-shadow:
-    0 10px 35px rgba(0, 0, 0, 0.22),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(59, 130, 246, 0.08),
+      rgba(139, 92, 246, 0.06)
+    ),
+    rgba(255, 255, 255, 0.07);
 
-  transition:
-    transform 0.25s ease,
-    background 0.25s ease,
-    border-color 0.25s ease,
-    box-shadow 0.25s ease;
-}
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
 
-.stat-card::before {
-  content: "";
+  border: 1px solid rgba(255, 255, 255, 0.12);
 
-  position: absolute;
-
-  top: -50px;
-
-  right: -50px;
-
-  width: 120px;
-
-  height: 120px;
-
-  border-radius: 50%;
-
-  background: rgba(96, 165, 250, 0.12);
-
-  filter: blur(20px);
-
-  pointer-events: none;
-}
-
-.stat-card:hover {
-  transform: translateY(-6px);
-
-  background: rgba(255, 255, 255, 0.12);
-
-  border-color: rgba(129, 140, 248, 0.4);
+  border-radius: 16px;
 
   box-shadow:
-    0 18px 45px rgba(0, 0, 0, 0.32),
-    0 0 25px rgba(79, 70, 229, 0.12),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-}
-
-.stat-card h3 {
-  position: relative;
-
-  margin: 0 0 12px;
-
-  color: rgba(226, 232, 240, 0.68);
-
-  font-size: 13px;
-
-  font-weight: 700;
-
-  text-transform: uppercase;
-
-  letter-spacing: 0.4px;
-}
-
-.stat-card p {
-  position: relative;
-
-  margin: 0;
-
-  color: #ffffff;
-
-  font-size: 34px;
-
-  font-weight: 800;
-
-  letter-spacing: -1px;
-}
-
-/* =========================================
-   TASK STATISTICS
-========================================= */
-
-.task-statistics {
-  margin-bottom: 30px;
-}
-
-.task-statistics h2 {
-  margin: 0 0 18px;
-
-  color: #ffffff;
-
-  font-size: 22px;
-
-  font-weight: 750;
-}
-
-.task-status-grid {
-  display: grid;
-
-  grid-template-columns:
-    repeat(4, minmax(0, 1fr));
-
-  gap: 18px;
-}
-
-/* =========================================
-   TASK STATUS GLASS CARDS
-========================================= */
-
-.task-status-card {
-  position: relative;
-
-  overflow: hidden;
-
-  background: rgba(255, 255, 255, 0.08);
-
-  backdrop-filter: blur(22px);
-
-  -webkit-backdrop-filter: blur(22px);
-
-  border: 1px solid rgba(255, 255, 255, 0.14);
-
-  border-radius: 18px;
-
-  padding: 22px;
-
-  box-shadow:
-    0 10px 35px rgba(0, 0, 0, 0.22),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    0 10px 30px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
 
   transition: 0.25s ease;
 }
 
-.task-status-card:hover {
-  transform: translateY(-5px);
+.stat-card:hover {
+  transform: translateY(-4px);
 
-  background: rgba(255, 255, 255, 0.12);
-
-  border-color: rgba(96, 165, 250, 0.4);
+  border-color: rgba(129, 140, 248, 0.35);
 
   box-shadow:
-    0 18px 45px rgba(0, 0, 0, 0.3),
-    0 0 25px rgba(59, 130, 246, 0.12);
+    0 16px 38px rgba(0, 0, 0, 0.3),
+    0 0 25px rgba(79, 70, 229, 0.1);
 }
 
-.task-status-card h3 {
-  margin: 0 0 10px;
+.stat-card h3 {
+  margin: 0 0 12px;
 
-  color: rgba(226, 232, 240, 0.68);
+  color: rgba(226, 232, 240, 0.55);
 
   font-size: 13px;
 
   font-weight: 700;
-
-  text-transform: uppercase;
-
-  letter-spacing: 0.4px;
 }
 
-.task-status-card p {
+.stat-card p {
   margin: 0;
 
   color: #ffffff;
 
-  font-size: 30px;
+  font-size: 32px;
 
   font-weight: 800;
 
@@ -412,181 +252,7 @@
 }
 
 /* =========================================
-   OVERALL PROGRESS
-========================================= */
-
-.overall-progress {
-  position: relative;
-
-  overflow: hidden;
-
-  margin-bottom: 30px;
-
-  padding: 26px;
-
-  background: rgba(255, 255, 255, 0.08);
-
-  backdrop-filter: blur(24px);
-
-  -webkit-backdrop-filter: blur(24px);
-
-  border: 1px solid rgba(255, 255, 255, 0.14);
-
-  border-radius: 20px;
-
-  box-shadow:
-    0 10px 35px rgba(0, 0, 0, 0.22),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-}
-
-.overall-progress h2 {
-  margin: 0 0 18px;
-
-  color: #ffffff;
-
-  font-size: 21px;
-
-  font-weight: 750;
-}
-
-/* =========================================
-   PROGRESS BAR
-========================================= */
-
-.dashboard-progress-bar {
-  width: 100%;
-
-  height: 16px;
-
-  background: rgba(15, 23, 42, 0.7);
-
-  border: 1px solid rgba(255, 255, 255, 0.08);
-
-  border-radius: 999px;
-
-  overflow: hidden;
-
-  box-shadow:
-    inset 0 2px 6px rgba(0, 0, 0, 0.35);
-}
-
-.dashboard-progress-fill {
-  height: 100%;
-
-  background:
-    linear-gradient(
-      90deg,
-      #3b82f6,
-      #6366f1,
-      #8b5cf6
-    );
-
-  border-radius: 999px;
-
-  transition: width 0.6s ease;
-
-  box-shadow:
-    0 0 18px rgba(99, 102, 241, 0.5);
-}
-
-.overall-progress > p {
-  margin: 14px 0 0;
-
-  color: rgba(226, 232, 240, 0.7);
-
-  font-size: 14px;
-
-  font-weight: 700;
-}
-
-/* =========================================
-   OVERDUE TASKS
-========================================= */
-
-.overdue-section {
-  margin-bottom: 30px;
-
-  padding: 26px;
-
-  background: rgba(255, 255, 255, 0.07);
-
-  backdrop-filter: blur(22px);
-
-  -webkit-backdrop-filter: blur(22px);
-
-  border: 1px solid rgba(255, 255, 255, 0.13);
-
-  border-radius: 20px;
-
-  box-shadow:
-    0 10px 35px rgba(0, 0, 0, 0.22),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
-}
-
-.overdue-section h2 {
-  margin: 0 0 18px;
-
-  color: #ffffff;
-
-  font-size: 21px;
-
-  font-weight: 750;
-}
-
-.overdue-section > p {
-  margin: 0;
-
-  color: rgba(226, 232, 240, 0.7);
-
-  font-size: 14px;
-}
-
-.overdue-list {
-  display: grid;
-
-  gap: 14px;
-}
-
-.overdue-task {
-  padding: 17px 18px;
-
-  background: rgba(239, 68, 68, 0.08);
-
-  border: 1px solid rgba(248, 113, 113, 0.18);
-
-  border-radius: 14px;
-
-  transition: 0.2s ease;
-}
-
-.overdue-task:hover {
-  background: rgba(239, 68, 68, 0.12);
-
-  border-color: rgba(248, 113, 113, 0.3);
-
-  transform: translateX(3px);
-}
-
-.overdue-task strong {
-  display: block;
-
-  margin-bottom: 8px;
-
-  color: #ffffff;
-
-  font-size: 15px;
-}
-
-.overdue-task p {
-  margin: 4px 0;
-
-  color: rgba(226, 232, 240, 0.65);
-
-  font-size: 13px;
-}
-
-/* =========================================
-   BOTTOM DASHBOARD CARDS
+   DASHBOARD CARDS
 ========================================= */
 
 .dashboard-cards {
@@ -607,13 +273,18 @@
 
   padding: 26px;
 
-  background: rgba(255, 255, 255, 0.08);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(59, 130, 246, 0.07),
+      rgba(139, 92, 246, 0.07)
+    ),
+    rgba(255, 255, 255, 0.065);
 
   backdrop-filter: blur(22px);
-
   -webkit-backdrop-filter: blur(22px);
 
-  border: 1px solid rgba(255, 255, 255, 0.14);
+  border: 1px solid rgba(255, 255, 255, 0.12);
 
   border-radius: 18px;
 
@@ -622,26 +293,32 @@
   color: inherit;
 
   box-shadow:
-    0 10px 35px rgba(0, 0, 0, 0.22),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    0 10px 32px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.06);
 
   transition: 0.25s ease;
 }
 
 .dashboard-card:hover {
-  transform: translateY(-6px);
+  transform: translateY(-5px);
 
-  background: rgba(255, 255, 255, 0.12);
+  background:
+    linear-gradient(
+      135deg,
+      rgba(59, 130, 246, 0.12),
+      rgba(139, 92, 246, 0.11)
+    ),
+    rgba(255, 255, 255, 0.09);
 
-  border-color: rgba(129, 140, 248, 0.42);
+  border-color: rgba(129, 140, 248, 0.4);
 
   box-shadow:
     0 18px 45px rgba(0, 0, 0, 0.32),
-    0 0 28px rgba(124, 58, 237, 0.14);
+    0 0 28px rgba(79, 70, 229, 0.12);
 }
 
 .dashboard-card h3 {
-  margin: 0 0 9px;
+  margin: 0 0 8px;
 
   color: #ffffff;
 
@@ -653,7 +330,7 @@
 .dashboard-card p {
   margin: 0;
 
-  color: rgba(226, 232, 240, 0.65);
+  color: rgba(226, 232, 240, 0.58);
 
   font-size: 14px;
 
@@ -664,13 +341,8 @@
    RESPONSIVE
 ========================================= */
 
-@media (max-width: 1000px) {
+@media (max-width: 900px) {
   .dashboard-stats {
-    grid-template-columns:
-      repeat(2, minmax(0, 1fr));
-  }
-
-  .task-status-grid {
     grid-template-columns:
       repeat(2, minmax(0, 1fr));
   }
@@ -680,56 +352,29 @@
   }
 }
 
-@media (max-width: 700px) {
+@media (max-width: 600px) {
   .dashboard-header {
-    align-items: flex-start;
-
-    gap: 20px;
-
-    padding: 22px 18px;
+    padding: 20px 16px;
   }
 
   .dashboard-header h1 {
     font-size: 20px;
   }
 
-  .dashboard-header {
-    flex-direction: column;
-  }
-
-  .dashboard-header button {
-    align-self: flex-start;
-  }
-
   .dashboard-nav {
+    gap: 14px;
     flex-wrap: wrap;
-
-    gap: 14px 20px;
   }
 
   .dashboard-content {
-    padding: 0 18px 35px;
+    padding: 15px 16px 40px;
   }
 
   .dashboard-content > h2 {
-    font-size: 28px;
+    font-size: 27px;
   }
 
   .dashboard-stats {
     grid-template-columns: 1fr;
-  }
-
-  .task-status-grid {
-    grid-template-columns: 1fr;
-  }
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .stat-card,
-  .task-status-card,
-  .dashboard-card,
-  .dashboard-header button,
-  .dashboard-nav a {
-    transition: none;
   }
 }
