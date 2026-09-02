@@ -18,50 +18,62 @@
    NAVIGATION
 ========================================= */
 
-.projects-nav {
+.projects-page nav {
   max-width: 1180px;
-  margin: 0 auto;
-  padding: 26px 32px;
-
+  margin: 0 auto 32px;
+  padding: 16px 22px;
   display: flex;
   align-items: center;
-  gap: 28px;
+  gap: 26px;
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(59, 130, 246, 0.09),
+      rgba(139, 92, 246, 0.09)
+    ),
+    rgba(255, 255, 255, 0.055);
+
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
+
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 16px;
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
 }
 
-.projects-nav a {
+.projects-page nav a {
   position: relative;
-
   color: rgba(226, 232, 240, 0.72);
   text-decoration: none;
-
   font-size: 14px;
   font-weight: 600;
-
   transition: all 0.25s ease;
 }
 
-.projects-nav a:hover {
+.projects-page nav a:hover {
   color: #ffffff;
   transform: translateY(-1px);
 }
 
-.projects-nav a::after {
+.projects-page nav a::after {
   content: "";
-
   position: absolute;
   left: 0;
-  bottom: -8px;
-
+  bottom: -7px;
   width: 0;
   height: 2px;
-
   border-radius: 999px;
 
-  background: linear-gradient(
-    90deg,
-    #3b82f6,
-    #8b5cf6
-  );
+  background:
+    linear-gradient(
+      90deg,
+      #3b82f6,
+      #8b5cf6
+    );
 
   box-shadow:
     0 0 10px rgba(59, 130, 246, 0.7);
@@ -69,29 +81,21 @@
   transition: width 0.25s ease;
 }
 
-.projects-nav a:hover::after {
+.projects-page nav a:hover::after {
   width: 100%;
 }
 
 /* =========================================
-   MAIN CONTENT
+   PAGE TITLE
 ========================================= */
 
-.projects-content {
+.projects-page > h1 {
   max-width: 1180px;
-  margin: 0 auto;
-
-  padding: 20px 32px 70px;
-}
-
-.projects-content h1 {
-  margin: 0 0 30px;
+  margin: 0 auto 28px;
 
   color: #ffffff;
-
   font-size: 36px;
   font-weight: 800;
-
   letter-spacing: -1px;
 
   text-shadow:
@@ -99,39 +103,39 @@
 }
 
 /* =========================================
-   PROJECT FORM
+   MAIN SECTIONS
 ========================================= */
 
-.project-form {
+.projects-page section {
   position: relative;
   overflow: hidden;
 
-  margin-bottom: 35px;
+  max-width: 1180px;
+  margin: 0 auto 30px;
   padding: 28px;
+  box-sizing: border-box;
 
   background:
     linear-gradient(
-      135deg,
-      rgba(59, 130, 246, 0.09),
-      rgba(139, 92, 246, 0.07)
+      145deg,
+      rgba(59, 130, 246, 0.07),
+      rgba(139, 92, 246, 0.06)
     ),
     rgba(255, 255, 255, 0.055);
 
-  backdrop-filter: blur(28px);
-  -webkit-backdrop-filter: blur(28px);
+  backdrop-filter: blur(25px);
+  -webkit-backdrop-filter: blur(25px);
 
-  border: 1px solid rgba(255, 255, 255, 0.13);
-
-  border-radius: 22px;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 20px;
 
   box-shadow:
-    0 20px 55px rgba(0, 0, 0, 0.28),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+    0 15px 45px rgba(0, 0, 0, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
 }
 
-.project-form::before {
+.projects-page section::before {
   content: "";
-
   position: absolute;
 
   width: 180px;
@@ -140,75 +144,75 @@
   top: -100px;
   right: -60px;
 
-  background: rgba(99, 102, 241, 0.15);
+  background: rgba(99, 102, 241, 0.12);
 
   border-radius: 50%;
-
-  filter: blur(50px);
+  filter: blur(55px);
 
   pointer-events: none;
 }
 
-.project-form h2 {
+.projects-page section h2 {
   position: relative;
-
   margin: 0 0 22px;
 
   color: #ffffff;
-
   font-size: 21px;
   font-weight: 750;
 }
 
 /* =========================================
-   FORM INPUTS
+   PROJECT FORM
 ========================================= */
 
-.project-form input,
-.project-form textarea,
-.project-form select {
-  box-sizing: border-box;
+.projects-page form {
+  position: relative;
 
+  display: grid;
+  grid-template-columns:
+    repeat(2, minmax(0, 1fr));
+
+  gap: 18px;
+}
+
+.projects-page form input,
+.projects-page form textarea,
+.projects-page form select {
   width: 100%;
-
-  margin-bottom: 16px;
+  box-sizing: border-box;
 
   padding: 14px 16px;
 
-  background: rgba(2, 6, 23, 0.48);
-
+  background: rgba(2, 6, 23, 0.5);
   color: #ffffff;
 
   border: 1px solid rgba(255, 255, 255, 0.12);
-
   border-radius: 12px;
 
-  outline: none;
-
   font-size: 14px;
+  outline: none;
 
   transition:
     border-color 0.25s ease,
     background 0.25s ease,
-    box-shadow 0.25s ease,
-    transform 0.2s ease;
+    box-shadow 0.25s ease;
 }
 
-.project-form input:hover,
-.project-form textarea:hover,
-.project-form select:hover {
-  border-color: rgba(148, 163, 184, 0.3);
-}
-
-.project-form input::placeholder,
-.project-form textarea::placeholder {
+.projects-page form input::placeholder,
+.projects-page form textarea::placeholder {
   color: rgba(226, 232, 240, 0.4);
 }
 
-.project-form input:focus,
-.project-form textarea:focus,
-.project-form select:focus {
-  background: rgba(15, 23, 42, 0.72);
+.projects-page form input:hover,
+.projects-page form textarea:hover,
+.projects-page form select:hover {
+  border-color: rgba(148, 163, 184, 0.3);
+}
+
+.projects-page form input:focus,
+.projects-page form textarea:focus,
+.projects-page form select:focus {
+  background: rgba(15, 23, 42, 0.75);
 
   border-color: rgba(96, 165, 250, 0.7);
 
@@ -217,26 +221,42 @@
     0 0 25px rgba(59, 130, 246, 0.1);
 }
 
-.project-form textarea {
-  min-height: 120px;
+.projects-page form textarea {
+  min-height: 115px;
   resize: vertical;
+
+  grid-column: 1 / -1;
 }
 
-.project-form select option {
+.projects-page form select option {
   background: #0f172a;
   color: #ffffff;
 }
 
 /* =========================================
-   PRIMARY BUTTON
+   FORM LABELS
 ========================================= */
 
-.project-form button {
+.projects-page form label {
+  font-size: 13px;
+  font-weight: 700;
+
+  color: rgba(226, 232, 240, 0.68);
+
+  margin-bottom: -10px;
+}
+
+/* =========================================
+   FORM BUTTONS
+========================================= */
+
+.projects-page form button {
+  width: fit-content;
+
   border: none;
+  border-radius: 11px;
 
-  border-radius: 12px;
-
-  padding: 13px 22px;
+  padding: 12px 20px;
 
   background:
     linear-gradient(
@@ -254,43 +274,258 @@
   cursor: pointer;
 
   box-shadow:
-    0 8px 25px rgba(79, 70, 229, 0.35);
+    0 8px 24px rgba(79, 70, 229, 0.3);
 
   transition: all 0.25s ease;
 }
 
-.project-form button:hover {
+.projects-page form button:hover {
   transform: translateY(-2px);
 
   box-shadow:
-    0 14px 35px rgba(79, 70, 229, 0.48),
-    0 0 20px rgba(99, 102, 241, 0.18);
+    0 14px 32px rgba(79, 70, 229, 0.45),
+    0 0 20px rgba(99, 102, 241, 0.12);
 }
 
-.project-form button:active {
+.projects-page form button:active {
   transform: translateY(0);
 }
 
-.project-form button:disabled {
-  opacity: 0.5;
-  cursor: not-allowed;
-  transform: none;
+/* =========================================
+   CANCEL BUTTON
+========================================= */
+
+.projects-page form button[type="button"] {
+  background: rgba(255, 255, 255, 0.07);
+
+  color: #dbeafe;
+
+  border: 1px solid rgba(255, 255, 255, 0.13);
+
+  box-shadow: none;
+}
+
+.projects-page form button[type="button"]:hover {
+  background: rgba(255, 255, 255, 0.12);
+
+  border-color:
+    rgba(129, 140, 248, 0.4);
+
+  box-shadow: none;
+}
+
+/* =========================================
+   PROJECT LIST
+========================================= */
+
+.projects-list {
+  display: grid;
+
+  grid-template-columns:
+    repeat(3, minmax(0, 1fr));
+
+  gap: 20px;
+}
+
+/* =========================================
+   PROJECT CARD
+========================================= */
+
+.project-card {
+  position: relative;
+  overflow: hidden;
+
+  padding: 23px;
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(59, 130, 246, 0.07),
+      rgba(139, 92, 246, 0.06)
+    ),
+    rgba(255, 255, 255, 0.055);
+
+  backdrop-filter: blur(22px);
+  -webkit-backdrop-filter: blur(22px);
+
+  border: 1px solid rgba(255, 255, 255, 0.11);
+  border-radius: 18px;
+
+  box-shadow:
+    0 12px 35px rgba(0, 0, 0, 0.22),
+    inset 0 1px 0 rgba(255, 255, 255, 0.07);
+
+  transition:
+    transform 0.25s ease,
+    border-color 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease;
+}
+
+.project-card:hover {
+  transform: translateY(-5px);
+
+  background:
+    linear-gradient(
+      145deg,
+      rgba(59, 130, 246, 0.11),
+      rgba(139, 92, 246, 0.1)
+    ),
+    rgba(255, 255, 255, 0.07);
+
+  border-color:
+    rgba(129, 140, 248, 0.4);
+
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.3),
+    0 0 28px rgba(79, 70, 229, 0.1);
+}
+
+.project-card h2 {
+  position: relative;
+
+  margin: 0 0 13px;
+
+  color: #ffffff;
+
+  font-size: 18px;
+  line-height: 1.4;
+  font-weight: 750;
+}
+
+.project-card p {
+  position: relative;
+
+  margin: 9px 0;
+
+  color: rgba(226, 232, 240, 0.67);
+
+  font-size: 13px;
+  line-height: 1.55;
+}
+
+.project-card strong {
+  color: #dbeafe;
+  font-weight: 700;
+}
+
+/* =========================================
+   PROJECT PROGRESS
+========================================= */
+
+.progress-bar {
+  width: 100%;
+  height: 8px;
+
+  margin: 10px 0 16px;
+
+  background: rgba(255, 255, 255, 0.08);
+
+  border-radius: 999px;
+
+  overflow: hidden;
+}
+
+.progress-fill {
+  height: 100%;
+
+  background:
+    linear-gradient(
+      90deg,
+      #2563eb,
+      #6366f1,
+      #8b5cf6
+    );
+
+  border-radius: 999px;
+
+  transition: width 0.4s ease;
+}
+
+/* =========================================
+   PROJECT BUTTONS
+========================================= */
+
+.project-card button {
+  margin-top: 15px;
+  margin-right: 8px;
+
+  padding: 9px 14px;
+
+  border-radius: 9px;
+
+  font-size: 13px;
+  font-weight: 700;
+
+  cursor: pointer;
+
+  transition: all 0.22s ease;
+}
+
+.project-card button:first-of-type {
+  background:
+    rgba(59, 130, 246, 0.12);
+
+  color: #93c5fd;
+
+  border: 1px solid rgba(96, 165, 250, 0.2);
+}
+
+.project-card button:first-of-type:hover {
+  background:
+    rgba(59, 130, 246, 0.2);
+
+  border-color:
+    rgba(96, 165, 250, 0.4);
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 6px 18px rgba(59, 130, 246, 0.12);
+}
+
+.project-card button:last-of-type {
+  background:
+    rgba(239, 68, 68, 0.1);
+
+  color: #fca5a5;
+
+  border: 1px solid rgba(248, 113, 113, 0.2);
+}
+
+.project-card button:last-of-type:hover {
+  background:
+    rgba(239, 68, 68, 0.18);
+
+  border-color:
+    rgba(248, 113, 113, 0.35);
+
+  transform: translateY(-2px);
+
+  box-shadow:
+    0 6px 18px rgba(239, 68, 68, 0.1);
 }
 
 /* =========================================
    ERROR MESSAGE
 ========================================= */
 
-.projects-error {
-  margin-bottom: 22px;
+.error-message {
+  max-width: 1180px;
+
+  margin: 0 auto 24px;
 
   padding: 14px 17px;
 
-  background: rgba(239, 68, 68, 0.1);
+  box-sizing: border-box;
 
-  border: 1px solid rgba(248, 113, 113, 0.25);
+  border-radius: 12px;
 
-  border-radius: 13px;
+  background:
+    rgba(239, 68, 68, 0.1);
+
+  border:
+    1px solid rgba(248, 113, 113, 0.25);
 
   color: #fecaca;
 
@@ -304,259 +539,64 @@
 }
 
 /* =========================================
-   PROJECT LIST
-========================================= */
-
-.projects-list {
-  display: grid;
-
-  grid-template-columns:
-    repeat(2, minmax(0, 1fr));
-
-  gap: 22px;
-}
-
-/* =========================================
-   PROJECT GLASS CARD
-========================================= */
-
-.project-card {
-  position: relative;
-  overflow: hidden;
-
-  padding: 26px;
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(59, 130, 246, 0.07),
-      rgba(139, 92, 246, 0.06)
-    ),
-    rgba(255, 255, 255, 0.055);
-
-  backdrop-filter: blur(25px);
-  -webkit-backdrop-filter: blur(25px);
-
-  border: 1px solid rgba(255, 255, 255, 0.12);
-
-  border-radius: 20px;
-
-  box-shadow:
-    0 15px 40px rgba(0, 0, 0, 0.24),
-    inset 0 1px 0 rgba(255, 255, 255, 0.07);
-
-  transition:
-    transform 0.3s ease,
-    border-color 0.3s ease,
-    box-shadow 0.3s ease,
-    background 0.3s ease;
-}
-
-.project-card::before {
-  content: "";
-
-  position: absolute;
-
-  top: -80px;
-  right: -80px;
-
-  width: 180px;
-  height: 180px;
-
-  background: rgba(59, 130, 246, 0.1);
-
-  border-radius: 50%;
-
-  filter: blur(45px);
-
-  pointer-events: none;
-}
-
-.project-card:hover {
-  transform: translateY(-6px);
-
-  background:
-    linear-gradient(
-      145deg,
-      rgba(59, 130, 246, 0.11),
-      rgba(139, 92, 246, 0.1)
-    ),
-    rgba(255, 255, 255, 0.07);
-
-  border-color: rgba(129, 140, 248, 0.4);
-
-  box-shadow:
-    0 22px 55px rgba(0, 0, 0, 0.32),
-    0 0 30px rgba(79, 70, 229, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-}
-
-.project-card h3 {
-  position: relative;
-
-  margin: 0 0 12px;
-
-  color: #ffffff;
-
-  font-size: 20px;
-  font-weight: 750;
-
-  letter-spacing: -0.3px;
-}
-
-.project-card p {
-  position: relative;
-
-  margin: 8px 0;
-
-  color: rgba(226, 232, 240, 0.67);
-
-  font-size: 14px;
-
-  line-height: 1.55;
-}
-
-/* =========================================
-   PROJECT STATUS
-========================================= */
-
-.project-status {
-  display: inline-flex;
-
-  align-items: center;
-
-  margin: 10px 0 15px;
-
-  padding: 6px 11px;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(59, 130, 246, 0.14),
-      rgba(139, 92, 246, 0.14)
-    );
-
-  border: 1px solid rgba(129, 140, 248, 0.28);
-
-  border-radius: 999px;
-
-  color: #c7d2fe;
-
-  font-size: 11px;
-  font-weight: 750;
-
-  text-transform: uppercase;
-
-  letter-spacing: 0.6px;
-
-  box-shadow:
-    0 0 15px rgba(99, 102, 241, 0.08);
-}
-
-/* =========================================
-   PROJECT ACTION BUTTONS
-========================================= */
-
-.project-card button {
-  margin-top: 16px;
-  margin-right: 9px;
-
-  padding: 9px 15px;
-
-  border-radius: 10px;
-
-  border: 1px solid rgba(255, 255, 255, 0.13);
-
-  background: rgba(255, 255, 255, 0.06);
-
-  color: #ffffff;
-
-  font-size: 13px;
-  font-weight: 650;
-
-  cursor: pointer;
-
-  transition: all 0.22s ease;
-}
-
-.project-card button:hover {
-  background:
-    linear-gradient(
-      135deg,
-      rgba(59, 130, 246, 0.18),
-      rgba(139, 92, 246, 0.18)
-    );
-
-  border-color: rgba(129, 140, 248, 0.45);
-
-  transform: translateY(-2px);
-
-  box-shadow:
-    0 7px 20px rgba(0, 0, 0, 0.18);
-}
-
-/* =========================================
-   EMPTY STATE
-========================================= */
-
-.projects-empty {
-  padding: 45px 30px;
-
-  text-align: center;
-
-  background:
-    linear-gradient(
-      135deg,
-      rgba(59, 130, 246, 0.06),
-      rgba(139, 92, 246, 0.06)
-    ),
-    rgba(255, 255, 255, 0.045);
-
-  border: 1px solid rgba(255, 255, 255, 0.11);
-
-  border-radius: 20px;
-
-  color: rgba(226, 232, 240, 0.65);
-
-  backdrop-filter: blur(20px);
-
-  box-shadow:
-    0 15px 40px rgba(0, 0, 0, 0.2);
-}
-
-/* =========================================
    RESPONSIVE
 ========================================= */
 
-@media (max-width: 800px) {
+@media (max-width: 950px) {
   .projects-list {
-    grid-template-columns: 1fr;
+    grid-template-columns:
+      repeat(2, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 700px) {
+  .projects-page {
+    padding: 16px;
   }
 
-  .projects-nav {
-    padding: 20px 18px;
+  .projects-page nav {
+    padding: 16px;
 
     flex-wrap: wrap;
 
     gap: 15px 20px;
   }
 
-  .projects-content {
-    padding: 15px 18px 45px;
+  .projects-page form {
+    grid-template-columns: 1fr;
   }
 
-  .projects-content h1 {
-    font-size: 29px;
+  .projects-page form textarea {
+    grid-column: auto;
+  }
+
+  .projects-list {
+    grid-template-columns: 1fr;
+  }
+
+  .projects-page section {
+    padding: 20px;
+  }
+
+  .projects-page > h1 {
+    font-size: 28px;
   }
 }
 
 @media (max-width: 500px) {
-  .project-form,
+  .projects-page nav {
+    margin-bottom: 22px;
+  }
+
+  .projects-page section {
+    padding: 18px;
+  }
+
   .project-card {
     padding: 20px;
   }
 
-  .projects-content h1 {
+  .projects-page > h1 {
     font-size: 26px;
   }
 }
