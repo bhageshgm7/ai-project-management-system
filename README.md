@@ -1,31 +1,47 @@
 # AI Project Management System
 
-A full-stack project management application built with **Django REST Framework** and **React**, with JWT authentication and an integrated AI assistant powered by Ollama.
+A full-stack project management application built with **Django REST Framework** and **React**, featuring JWT authentication, role-based access control, and an integrated AI assistant powered by Ollama.
 
-The system helps users manage projects and tasks through a clean, responsive dashboard while providing AI-assisted project management capabilities.
+The system allows users to manage projects and tasks through a clean, responsive dashboard while providing AI-assisted project management capabilities.
 
 ## Features
 
 * User registration and login
 * JWT-based authentication
+* Role-based access control
+* Admin, Manager, and Member roles
 * Automatic MEMBER role for newly registered users
+* Role-based project and task visibility
 * Project management
 * Task management
 * Task priority and status tracking
-* Protected routes
+* Protected frontend routes
 * AI Assistant powered by Ollama
+* RESTful APIs using Django REST Framework
 * Responsive React frontend
 * Dark Glass UI design
-* RESTful APIs using Django REST Framework
 * SQLite database for development
 
 ## User Roles
 
 The system supports three user roles:
 
-* **ADMIN** – Administrative access
-* **MANAGER** – Project and management-related access
-* **MEMBER** – Regular project and task access
+### ADMIN
+
+* Administrative access
+* View all projects and tasks
+* Delete projects and tasks
+
+### MANAGER
+
+* View projects they manage
+* View tasks belonging to their projects
+* Create and update projects and tasks
+
+### MEMBER
+
+* View tasks assigned to them
+* View projects related to their assigned tasks
 
 New users registering through the public registration page are automatically assigned the **MEMBER** role.
 
@@ -37,6 +53,7 @@ New users registering through the public registration page are automatically ass
 * Django
 * Django REST Framework
 * Simple JWT
+* django-filter
 * SQLite
 
 ### Frontend
@@ -79,13 +96,14 @@ project-management-system2/
 │       └── services/
 │
 ├── manage.py
+├── requirements.txt
 ├── .gitignore
 └── README.md
 ```
 
 ## Backend Setup
 
-Clone the repository and open the project folder:
+Clone the repository:
 
 ```bash
 git clone https://github.com/bhageshgm7/ai-project-management-system.git
@@ -113,7 +131,7 @@ Run migrations:
 python manage.py migrate
 ```
 
-Start the Django server:
+Start the Django development server:
 
 ```powershell
 python manage.py runserver
@@ -127,7 +145,7 @@ http://127.0.0.1:8000/
 
 ## Frontend Setup
 
-Open another terminal:
+Open another terminal and navigate to the frontend:
 
 ```powershell
 cd frontend
@@ -153,21 +171,21 @@ http://localhost:5173/
 
 ## Authentication
 
-The application uses JWT authentication.
+The application uses **JWT authentication** for secure API access.
 
-### Login Endpoint
+### Login
 
 ```text
 POST /api/token/
 ```
 
-### Refresh Token Endpoint
+### Refresh Token
 
 ```text
 POST /api/token/refresh/
 ```
 
-### Registration Endpoint
+### Registration
 
 ```text
 POST /api/register/
@@ -199,6 +217,12 @@ New users are automatically assigned the `MEMBER` role.
 /api/tasks/
 ```
 
+### Users
+
+```text
+/api/users/
+```
+
 ### User Registration
 
 ```text
@@ -215,7 +239,7 @@ New users are automatically assigned the `MEMBER` role.
 
 The project includes an AI Assistant designed to provide intelligent assistance within the project management system.
 
-The AI functionality uses **Ollama**, allowing AI processing through a locally running model.
+The AI functionality uses **Ollama**, allowing AI processing through a locally running model without requiring a cloud-based AI service.
 
 ## Security
 
@@ -225,12 +249,13 @@ The application includes:
 * Protected frontend routes
 * Authenticated API access
 * Password hashing through Django authentication
-* Role-based user model
+* Role-based access control
+* Role-based project and task visibility
 * Public registration restricted to MEMBER accounts
 
 ## Screenshots
 
-Screenshots of the application can be added here.
+Screenshots can be added here to showcase the application.
 
 Recommended screenshots:
 
@@ -241,7 +266,7 @@ Recommended screenshots:
 5. Tasks page
 6. AI Assistant
 
-Example:
+Example structure:
 
 ```text
 screenshots/
