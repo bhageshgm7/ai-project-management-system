@@ -1,5 +1,5 @@
 import { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import api from "../services/api";
 import { useAuth } from "../context/AuthContext";
 import "./Login.css";
@@ -108,6 +108,11 @@ function Login() {
 
         <p className="login-footer">
           Secure authentication powered by JWT
+        </p>
+
+        <p className="signup-link">
+          Don't have an account?{" "}
+          <Link to="/register">Sign Up</Link>
         </p>
       </div>
     </div>

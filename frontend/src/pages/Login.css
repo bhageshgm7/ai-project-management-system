@@ -397,3 +397,19 @@ css
   }
 }
 
+.signup-link {
+  margin-top: 16px;
+  text-align: center;
+  color: #94a3b8;
+  font-size: 13px;
+}
+
+.signup-link a {
+  color: #60a5fa;
+  font-weight: 600;
+  text-decoration: none;
+}
+
+.signup-link a:hover {
+  text-decoration: underline;
+}
