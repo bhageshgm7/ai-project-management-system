@@ -253,30 +253,35 @@ The application includes:
 * Role-based project and task visibility
 * Public registration restricted to MEMBER accounts
 
+
+
+
+```markdown
 ## Screenshots
 
-Screenshots can be added here to showcase the application.
+### Login Page
 
-Recommended screenshots:
+![Login Page](screenshots/login.png)
 
-1. Login page
-2. Registration page
-3. Dashboard
-4. Projects page
-5. Tasks page
-6. AI Assistant
+### Registration Page
 
-Example structure:
+![Registration Page](screenshots/register.png)
 
-```text
-screenshots/
-├── login.png
-├── register.png
-├── dashboard.png
-├── projects.png
-├── tasks.png
-└── ai-assistant.png
-```
+### Dashboard
+
+![Dashboard](screenshots/Dashboard.png)
+
+### Projects
+
+![Projects](screenshots/projects.png)
+
+### Tasks
+
+![Tasks](screenshots/tasks.png)
+
+### AI Assistant
+
+![AI Assistant](screenshots/ai-assistant.png)
 
 ## Future Improvements
 
