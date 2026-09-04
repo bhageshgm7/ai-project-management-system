@@ -136,6 +136,7 @@ STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
+    "https://ai-project-management-system-1.onrender.com",
 ]
 
 AUTH_USER_MODEL = 'accounts.User'
