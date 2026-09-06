@@ -8,20 +8,20 @@ from pathlib import Path
 import os
 from datetime import timedelta
 
+import dj_database_url
 
-# Build paths inside the project like this: BASE_DIR / 'subdir'.
+
 BASE_DIR = Path(__file__).resolve().parent.parent
 
 
-# ============================================================
-# SECURITY
-# ============================================================
-
+# SECURITY WARNING: keep the secret key used in production secret!
 SECRET_KEY = os.getenv(
     "SECRET_KEY",
     "django-insecure-local-development-key"
 )
 
+
+# SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = os.getenv("DEBUG", "True") == "True"
 
 
@@ -32,9 +32,7 @@ ALLOWED_HOSTS = [
 ]
 
 
-# ============================================================
-# APPLICATIONS
-# ============================================================
+# Application definition
 
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -54,10 +52,6 @@ INSTALLED_APPS = [
 ]
 
 
-# ============================================================
-# MIDDLEWARE
-# ============================================================
-
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
@@ -70,18 +64,8 @@ MIDDLEWARE = [
 ]
 
 
-# ============================================================
-# URLS / WSGI
-# ============================================================
-
 ROOT_URLCONF = 'config.urls'
 
-WSGI_APPLICATION = 'config.wsgi.application'
-
-
-# ============================================================
-# TEMPLATES
-# ============================================================
 
 TEMPLATES = [
     {
@@ -99,21 +83,21 @@ TEMPLATES = [
 ]
 
 
-# ============================================================
-# DATABASE
-# ============================================================
+WSGI_APPLICATION = 'config.wsgi.application'
+
+
+# Database
+# Use PostgreSQL on Render through DATABASE_URL.
+# Fall back to SQLite for local development.
 
 DATABASES = {
-    'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
-    }
+    'default': dj_database_url.config(
+        default=f"sqlite:///{BASE_DIR / 'db.sqlite3'}"
+    )
 }
 
 
-# ============================================================
-# PASSWORD VALIDATION
-# ============================================================
+# Password validation
 
 AUTH_PASSWORD_VALIDATORS = [
     {
@@ -135,9 +119,7 @@ AUTH_PASSWORD_VALIDATORS = [
 ]
 
 
-# ============================================================
-# INTERNATIONALIZATION
-# ============================================================
+# Internationalization
 
 LANGUAGE_CODE = 'en-us'
 
@@ -148,18 +130,14 @@ USE_I18N = True
 USE_TZ = True
 
 
-# ============================================================
-# STATIC FILES
-# ============================================================
+# Static files
 
 STATIC_URL = '/static/'
 
 STATIC_ROOT = BASE_DIR / 'staticfiles'
 
 
-# ============================================================
 # CORS
-# ============================================================
 
 CORS_ALLOWED_ORIGINS = [
     "http://localhost:5173",
@@ -167,16 +145,12 @@ CORS_ALLOWED_ORIGINS = [
 ]
 
 
-# ============================================================
-# CUSTOM USER MODEL
-# ============================================================
+# Custom user model
 
 AUTH_USER_MODEL = 'accounts.User'
 
 
-# ============================================================
-# DJANGO REST FRAMEWORK
-# ============================================================
+# Django REST Framework
 
 REST_FRAMEWORK = {
     "DEFAULT_AUTHENTICATION_CLASSES": (
@@ -191,26 +165,18 @@ REST_FRAMEWORK = {
 }
 
 
-# ============================================================
 # JWT
-# ============================================================
 
 SIMPLE_JWT = {
     "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30),
-
     "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
-
     "ROTATE_REFRESH_TOKENS": False,
-
     "BLACKLIST_AFTER_ROTATION": False,
-
     "AUTH_HEADER_TYPES": ("Bearer",),
 }
 
 
-# ============================================================
-# EMAIL
-# ============================================================
+# Email
 
 MAILERS = {
     'default': {
@@ -219,8 +185,6 @@ MAILERS = {
 }
 
 
-# ============================================================
-# OPENAI
-# ============================================================
+# OpenAI
 
 OPENAI_API_KEY = os.getenv("OPENAI_API_KEY")

@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
+import api from "../services/api";
 import "./Register.css";
 
 function Register() {
@@ -52,21 +53,15 @@ function Register() {
     setLoading(true);
 
     try {
-      const response = await fetch("http://127.0.0.1:8000/api/register/", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          username: formData.username,
-          email: formData.email,
-          password: formData.password,
-        }),
+      const response = await api.post("register/", {
+        username: formData.username,
+        email: formData.email,
+        password: formData.password,
       });
 
-      const data = await response.json();
+      const data = response.data;
 
-      if (!response.ok) {
+      if (response.status < 200 || response.status >= 300) {
         if (data.username) {
           setError(`Username: ${data.username[0]}`);
         } else if (data.email) {
@@ -74,7 +69,7 @@ function Register() {
         } else if (data.password) {
           setError(`Password: ${data.password[0]}`);
         } else {
-          setError("Registration failed. Please check your details.");
+          setError(JSON.stringify(data));
         }
         return;
       }
@@ -85,7 +80,26 @@ function Register() {
         navigate("/");
       }, 1500);
     } catch (err) {
-      setError("Unable to connect to the server.");
+      console.log(
+        "Registration error:",
+        err.response?.data || err.message
+      );
+
+      if (err.response?.data) {
+        const data = err.response.data;
+
+        if (data.username) {
+          setError(`Username: ${data.username[0]}`);
+        } else if (data.email) {
+          setError(`Email: ${data.email[0]}`);
+        } else if (data.password) {
+          setError(`Password: ${data.password[0]}`);
+        } else {
+          setError(JSON.stringify(data));
+        }
+      } else {
+        setError("Unable to connect to the server.");
+      }
     } finally {
       setLoading(false);
     }
@@ -99,9 +113,7 @@ function Register() {
 
           <h1>Create Account</h1>
 
-          <p>
-            Join the Project Management System
-          </p>
+          <p>Join the Project Management System</p>
         </div>
 
         <form onSubmit={handleSubmit} className="register-form">
@@ -180,9 +192,7 @@ function Register() {
 
         <div className="login-link">
           Already have an account?{" "}
-          <Link to="/">
-            Login
-          </Link>
+          <Link to="/">Login</Link>
         </div>
       </div>
     </div>
