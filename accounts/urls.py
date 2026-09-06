@@ -1,7 +1,7 @@
 from django.urls import path
 from rest_framework.routers import DefaultRouter
 
-from .views import RegisterView, UserViewSet, CheckUserView
+from .views import RegisterView, UserViewSet
 
 
 router = DefaultRouter()
@@ -20,11 +20,7 @@ urlpatterns = [
         name="register"
     ),
 
-    path(
-        "check-user/",
-        CheckUserView.as_view(),
-        name="check-user"
-    ),
+   
 ]
 
 

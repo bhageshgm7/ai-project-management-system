@@ -16,27 +16,3 @@ class UserViewSet(viewsets.ReadOnlyModelViewSet):
     permission_classes = [permissions.IsAuthenticated]
 
 
-class CheckUserView(generics.GenericAPIView):
-    permission_classes = [permissions.AllowAny]
-
-    def get(self, request):
-        username = request.query_params.get("username")
-
-        if not username:
-            return Response({
-                "error": "username is required"
-            })
-
-        user = User.objects.filter(username=username).first()
-
-        if user:
-            return Response({
-                "exists": True,
-                "username": user.username,
-                "is_active": user.is_active,
-                "role": user.role,
-            })
-
-        return Response({
-            "exists": False
-        })
