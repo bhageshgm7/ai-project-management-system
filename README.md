@@ -27,6 +27,25 @@ https://ai-project-management-system-kwco.onrender.com
 * 🗄️ PostgreSQL database
 * ☁️ Render deployment
 * 🔄 RESTful API architecture
+## 📸 Screenshots
+
+### Register
+![Register](screenshots/register.png)
+
+### Login
+![Login](screenshots/login.png)
+
+### Dashboard
+![Dashboard](screenshots/dashboard.png)
+
+### Projects
+![Projects](screenshots/projects.png)
+
+### Tasks
+![Tasks](screenshots/tasks.png)
+
+### AI Assistant
+![AI Assistant](screenshots/ai-assistant.png)
 
 ---
 
