@@ -1,51 +1,70 @@
 # AI Project Management System
 
-A full-stack project management application built with **Django REST Framework** and **React**, featuring JWT authentication, role-based access control, and an integrated AI assistant powered by Ollama.
+A full-stack project management application built with **Django REST Framework** and **React**, with **JWT authentication**, **role-based access control**, **PostgreSQL**, and an **AI-powered project assistant**.
 
-The system allows users to manage projects and tasks through a clean, responsive dashboard while providing AI-assisted project management capabilities.
+## 🚀 Live Demo
 
-## Features
+**Frontend:**
+https://ai-project-management-system-1.onrender.com
 
-* User registration and login
-* JWT-based authentication
-* Role-based access control
-* Admin, Manager, and Member roles
-* Automatic MEMBER role for newly registered users
-* Role-based project and task visibility
-* Project management
-* Task management
-* Task priority and status tracking
-* Protected frontend routes
-* AI Assistant powered by Ollama
-* RESTful APIs using Django REST Framework
-* Responsive React frontend
-* Dark Glass UI design
-* SQLite database for development
+**Backend API:**
+https://ai-project-management-system-kwco.onrender.com
 
-## User Roles
+---
 
-The system supports three user roles:
+## 📌 Features
 
-### ADMIN
+* 🔐 JWT-based authentication
+* 👤 User registration and login
+* 🛡️ Role-based access control
+* 📁 Project management
+* ✅ Task management
+* 📊 Project dashboard
+* 🤖 AI Project Assistant
+* 🔎 Search and filtering
+* 📱 Responsive design
+* 🌙 Dark Glass UI
+* 🗄️ PostgreSQL database
+* ☁️ Render deployment
+* 🔄 RESTful API architecture
 
-* Administrative access
-* View all projects and tasks
+---
+
+## 👥 User Roles
+
+### Admin
+
+* Manage users
+* View projects and tasks
 * Delete projects and tasks
+* Full system access
 
-### MANAGER
+### Manager
 
-* View projects they manage
-* View tasks belonging to their projects
-* Create and update projects and tasks
+* Create projects
+* Update projects
+* Manage tasks
+* Assign tasks to team members
 
-### MEMBER
+### Member
 
-* View tasks assigned to them
-* View projects related to their assigned tasks
+* View assigned projects
+* View assigned tasks
+* Work with tasks assigned to them
 
-New users registering through the public registration page are automatically assigned the **MEMBER** role.
+---
 
-## Technology Stack
+## 🛠️ Technology Stack
+
+### Frontend
+
+* React
+* JavaScript
+* HTML5
+* CSS3
+* Axios
+* React Router
+* Vite
 
 ### Backend
 
@@ -54,28 +73,41 @@ New users registering through the public registration page are automatically ass
 * Django REST Framework
 * Simple JWT
 * django-filter
-* SQLite
 
-### Frontend
+### Database
 
-* React
-* React Router
-* JavaScript
-* HTML
-* CSS
-* Vite
+* PostgreSQL
+* SQLite for local development
 
 ### AI
 
-* Ollama
-* Local AI model integration
+* Ollama / AI Project Assistant
 
-## Project Structure
+### Deployment
+
+* Render
+* GitHub
+
+---
+
+## 🏗️ Project Structure
 
 ```text
-project-management-system2/
+AI Project Management System
 │
 ├── accounts/
+│   ├── models.py
+│   ├── serializers.py
+│   ├── views.py
+│   └── urls.py
+│
+├── projects/
+│   ├── models.py
+│   ├── serializers.py
+│   ├── views.py
+│   └── urls.py
+│
+├── tasks/
 │   ├── models.py
 │   ├── serializers.py
 │   ├── views.py
@@ -84,149 +116,69 @@ project-management-system2/
 ├── ai_assistant/
 │
 ├── config/
-│
-├── projects/
-│
-├── tasks/
+│   ├── settings.py
+│   ├── urls.py
+│   └── wsgi.py
 │
 ├── frontend/
 │   └── src/
-│       ├── pages/
+│       ├── components/
 │       ├── context/
+│       ├── pages/
 │       └── services/
 │
 ├── manage.py
 ├── requirements.txt
-├── .gitignore
+├── build.sh
 └── README.md
 ```
 
-## Backend Setup
+---
 
-Clone the repository:
+## 🔑 Authentication
 
-```bash
-git clone https://github.com/bhageshgm7/ai-project-management-system.git
-cd ai-project-management-system
-```
+The application uses **JWT authentication**.
 
-Create and activate a virtual environment:
+Users can:
 
-### Windows
+1. Create an account
+2. Log in using their username and password
+3. Receive an access token and refresh token
+4. Access protected API endpoints
+5. Use role-based permissions
 
-```powershell
-python -m venv venv
-.\venv\Scripts\Activate.ps1
-```
+---
 
-Install backend dependencies:
+## 🔌 API Endpoints
 
-```powershell
-pip install -r requirements.txt
-```
-
-Run migrations:
-
-```powershell
-python manage.py migrate
-```
-
-Start the Django development server:
-
-```powershell
-python manage.py runserver
-```
-
-The backend will run at:
-
-```text
-http://127.0.0.1:8000/
-```
-
-## Frontend Setup
-
-Open another terminal and navigate to the frontend:
-
-```powershell
-cd frontend
-```
-
-Install dependencies:
-
-```powershell
-npm install
-```
-
-Start the React development server:
-
-```powershell
-npm run dev
-```
-
-The frontend will normally run at:
-
-```text
-http://localhost:5173/
-```
-
-## Authentication
-
-The application uses **JWT authentication** for secure API access.
-
-### Login
-
-```text
-POST /api/token/
-```
-
-### Refresh Token
-
-```text
-POST /api/token/refresh/
-```
-
-### Registration
+### Authentication
 
 ```text
 POST /api/register/
+POST /api/token/
+POST /api/token/refresh/
 ```
-
-Example registration request:
-
-```json
-{
-  "username": "newuser",
-  "email": "newuser@example.com",
-  "password": "Test@12345"
-}
-```
-
-New users are automatically assigned the `MEMBER` role.
-
-## Main API Endpoints
 
 ### Projects
 
 ```text
-/api/projects/
+GET    /api/projects/
+POST   /api/projects/
+GET    /api/projects/<id>/
+PUT    /api/projects/<id>/
+PATCH  /api/projects/<id>/
+DELETE /api/projects/<id>/
 ```
 
 ### Tasks
 
 ```text
-/api/tasks/
-```
-
-### Users
-
-```text
-/api/users/
-```
-
-### User Registration
-
-```text
-/api/register/
+GET    /api/tasks/
+POST   /api/tasks/
+GET    /api/tasks/<id>/
+PUT    /api/tasks/<id>/
+PATCH  /api/tasks/<id>/
+DELETE /api/tasks/<id>/
 ```
 
 ### AI Assistant
@@ -235,75 +187,161 @@ New users are automatically assigned the `MEMBER` role.
 /api/ai/
 ```
 
-## AI Assistant
+---
 
-The project includes an AI Assistant designed to provide intelligent assistance within the project management system.
+## 💻 Run Locally
 
-The AI functionality uses **Ollama**, allowing AI processing through a locally running model without requiring a cloud-based AI service.
+### 1. Clone the repository
 
-## Security
+```bash
+git clone https://github.com/bhageshgm7/ai-project-management-system.git
+cd ai-project-management-system
+```
+
+### 2. Create and activate virtual environment
+
+Windows:
+
+```powershell
+python -m venv venv
+.\venv\Scripts\Activate.ps1
+```
+
+### 3. Install backend dependencies
+
+```bash
+pip install -r requirements.txt
+```
+
+### 4. Run migrations
+
+```bash
+python manage.py migrate
+```
+
+### 5. Start Django backend
+
+```bash
+python manage.py runserver
+```
+
+Backend:
+
+```text
+http://127.0.0.1:8000/
+```
+
+### 6. Start React frontend
+
+Open another terminal:
+
+```powershell
+cd frontend
+npm install
+npm run dev
+```
+
+Frontend:
+
+```text
+http://localhost:5173/
+```
+
+---
+
+## 🗄️ Database Configuration
+
+Local development uses SQLite by default.
+
+Production uses PostgreSQL through the `DATABASE_URL` environment variable.
+
+The application uses `dj-database-url` to configure the database connection.
+
+---
+
+## ☁️ Deployment
+
+The application is deployed using **Render**.
+
+### Frontend
+
+React/Vite frontend is deployed as a Render Static Site.
+
+### Backend
+
+Django REST API is deployed as a Render Web Service using Gunicorn.
+
+### Database
+
+PostgreSQL is hosted on Render.
+
+---
+
+## 🤖 AI Project Assistant
+
+The project includes an AI assistant designed to help with project-management related tasks such as:
+
+* Project planning
+* Task suggestions
+* Workflow assistance
+* Project-related questions
+
+The AI layer is designed separately from the core project and task management functionality.
+
+---
+
+## 🎨 UI
+
+The application uses a modern **Dark Glass UI** with:
+
+* Glassmorphism cards
+* Dark theme
+* Responsive layouts
+* Clean navigation
+* Interactive forms
+* Dashboard-based workflow
+
+---
+
+## 🔒 Security
 
 The application includes:
 
 * JWT authentication
-* Protected frontend routes
-* Authenticated API access
+* Protected API endpoints
+* Role-based permissions
 * Password hashing through Django authentication
-* Role-based access control
-* Role-based project and task visibility
-* Public registration restricted to MEMBER accounts
+* CORS configuration
+* Environment-based production secrets
 
+---
 
-
-
-```markdown
-## Screenshots
-
-### Login Page
-
-![Login Page](screenshots/login.png)
-
-### Registration Page
-
-![Registration Page](screenshots/register.png)
-
-### Dashboard
-
-![Dashboard](screenshots/Dashboard.png)
-
-### Projects
-
-![Projects](screenshots/projects.png)
-
-### Tasks
-
-![Tasks](screenshots/tasks.png)
-
-### AI Assistant
-
-![AI Assistant](screenshots/ai-assistant.png)
-
-## Future Improvements
+## 📈 Future Improvements
 
 Possible future enhancements include:
 
+* Email notifications
 * Advanced project analytics
-* Notifications
-* Email integration
-* Team collaboration
-* AI conversation history
+* File attachments
+* Real-time notifications
+* Team chat
+* Hosted AI API integration
 * Advanced reporting
-* Production database support
-* Cloud deployment
 
-## Author
+---
 
-**Bhagesh**
+## 👨‍💻 Author
 
-GitHub:
+**Jesta dl**
 
-https://github.com/bhageshgm7
+BE – Electronics and Communication Engineering
 
-## License
+---
 
-This project is intended for educational and portfolio purposes.
+## ⭐ Project Highlights
+
+This project demonstrates practical experience with:
+
+**Python + Django + REST API + React + JWT + PostgreSQL + AI + Deployment**
+
+It was developed as a full-stack portfolio project to demonstrate modern web development and AI integration.
